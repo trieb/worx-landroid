@@ -65,7 +65,7 @@ def check_alarms(alarm_array):
          alarm_ok = 0
          if(DEBUG):
             print(alarms[i])
-         push_message('alarm/' + alarms[i] + '/', alarm_array[i])
+      push_message('alarm/' + alarms[i] + '/', alarm_array[i])
    
    push_message('alarm/alarm_ok/', alarm_ok)
 
