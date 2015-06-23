@@ -9,6 +9,8 @@ It also publish the data using Dweet.io to easily view it on e.g. freeboard.io.
 2. Add your configuration to config.ini
 3. Install required libraries
 
+#openHAB
+![Alarms from LandroidWorx in openHAB](openHAB_LandroidWorx.png)
 
 # Alarms
 
