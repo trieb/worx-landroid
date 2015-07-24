@@ -43,7 +43,7 @@ def push_message(sub_topic, value):
    topic = Config.get("Mqtt", "BaseTopic") + sub_topic
    mqttc.publish(topic, value)
    # Dweet message
-   dweepy.dweet_for(Config.get("Dweet", "Thing"), {sub_topic: str(value)})
+   dweepy.dweet_for(Config.get("Dweet", "Thing"), {sub_topic.split('/')[-1]: str(value)})
 
 def check_general(data):
    push_message('/battery', float(data['perc_batt']))
