@@ -46,7 +46,7 @@ def push_message(sub_topic, value):
    dweepy.dweet_for(Config.get("Dweet", "Thing"), {sub_topic: str(value)})
 
 def check_general(data):
-   push_message('battery', float(data['perc_batt']))
+   push_message('/battery', float(data['perc_batt']))
 
 def check_alarms(alarm_array):
    alarm_ok = 1
@@ -69,9 +69,9 @@ def check_alarms(alarm_array):
          alarm_ok = 0
          if(DEBUG):
             print(alarms[i])
-      push_message('alarm/' + alarms[i] + '/', alarm_array[i])
+      push_message('/alarm/' + alarms[i], alarm_array[i])
    
-   push_message('alarm/alarm_ok/', alarm_ok)
+   push_message('/alarm/alarm_ok', alarm_ok)
 
 while running:
    # Poll Landroid Worx
