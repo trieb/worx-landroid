@@ -1,4 +1,4 @@
-﻿#!/usr/bin/python
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 
 try:
@@ -10,11 +10,15 @@ import time
 import paho.mqtt.client as mqtt
 import dweepy
 import requests
+import os
 
 DEBUG = False
 running = True
 
+os.chdir('/home/pi/repos/worx-landroid/')
+
 Config = ConfigParser.ConfigParser()
+#Config.read('/home/pi/repos/worx-landroid/config.ini')
 Config.read('config.ini')
 
 def on_connect(client, userdata, rc):
@@ -79,7 +83,7 @@ while running:
    check_general(data)
 
    # Wait, and then exit program  
-   time.sleep(5)
+   time.sleep(2)
    mqttc.loop_stop()
    running = False
    
