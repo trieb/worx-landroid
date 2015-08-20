@@ -35,7 +35,7 @@ def on_message(client, userdata, msg):
 mqttc = mqtt.Client()
 mqttc.on_connect = on_connect
 mqttc.on_message = on_message
-mqttc.connect(Config.get("Mqtt", "Host"), int(Config.get("Mqtt", "Port")), 60)
+mqttc.connect(Config.get("Mqtt", "Host"), int(Config.get("Mqtt", "Port")), 30)
 mqttc.loop_start()
 
 def push_message(sub_topic, value):
@@ -47,6 +47,8 @@ def push_message(sub_topic, value):
 
 def check_general(data):
    push_message('/battery', float(data['perc_batt']))
+   push_message('/worked_hours', float(data['ore_movimento']))
+
 
 def check_alarms(alarm_array):
    alarm_ok = 1
@@ -60,7 +62,7 @@ def check_alarms(alarm_array):
              'error',
              'error',
              'collision_sensor_blocked',
-             '',
+             'mower_tilted',
              'charge_error',
              'battery_error']
 
