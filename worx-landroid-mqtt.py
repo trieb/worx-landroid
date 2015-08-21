@@ -18,7 +18,6 @@ running = True
 os.chdir('/home/pi/repos/worx-landroid/')
 
 Config = ConfigParser.ConfigParser()
-#Config.read('/home/pi/repos/worx-landroid/config.ini')
 Config.read('config.ini')
 
 def on_connect(client, userdata, rc):
