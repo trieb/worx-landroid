@@ -1,0 +1,18 @@
+/* Landroid Worx Mower */
+Group group_LawnMower         "Lawn Mower" <garden2> (group_Outdoor)
+Group group_LawnMowerAlarms   "Alarms"     <siren>   (group_LawnMower)
+Group group_LawnMowerCommands "Commands"   <command> (group_LawnMower)
+
+/* Lawn Mower Landroid Worx */
+Number Mower_AlarmOk                "Alarm OK [%d]"                  <info> (group_LawnMower)       {mqtt="<[mosquitto:laxryggen/landroid/alarm/alarm_ok:state:default]"}
+Number Mower_BatteryError           "Battery Error [%d]"             <info> (group_LawnMowerAlarms) {mqtt="<[mosquitto:laxryggen/landroid/alarm/battery_error:state:default]"}
+Number Mower_ChargeError            "Charge Error [%d]"              <info> (group_LawnMowerAlarms) {mqtt="<[mosquitto:laxryggen/landroid/alarm/charge_error:state:default]"}
+Number Mower_BladeBlocked           "Blade Blocked [%d]"             <info> (group_LawnMowerAlarms) {mqtt="<[mosquitto:laxryggen/landroid/alarm/blade_blocked:state:default]"}
+Number Mower_RepositioningError     "Repositioning Error [%d]"       <info> (group_LawnMowerAlarms) {mqtt="<[mosquitto:laxryggen/landroid/alarm/repositioning_error:state:default]"}
+Number Mower_OutsideWire            "Outside Wire [%d]"              <info> (group_LawnMowerAlarms) {mqtt="<[mosquitto:laxryggen/landroid/alarm/outside_wire:state:default]"}
+Number Mower_Tilted                 "Tilted [%d]"                    <info> (group_LawnMowerAlarms) {mqtt="<[mosquitto:laxryggen/landroid/alarm/mower_tilted:state:default]"}
+Number Mower_CollisionSensorBlocked "Collision Sensor Blocked [%d]"  <info> (group_LawnMowerAlarms) {mqtt="<[mosquitto:laxryggen/landroid/alarm/collision_sensor_blocked:state:default]"}
+Number Mower_Error                  "Other Error [%d]"               <info> (group_LawnMowerAlarms) {mqtt="<[mosquitto:laxryggen/landroid/alarm/error:state:default]"}
+Number Mower_Battery                "Battery [%d]"                   <battery> (group_LawnMower)    {mqtt="<[mosquitto:laxryggen/landroid/battery:state:default]"}
+Number Mower_WorkedHours            "Worked Hours [%.1f]"            <clock> (group_LawnMower)      {mqtt="<[mosquitto:laxryggen/landroid/worked_hours:state:JS(divide10.js)]"}
+DateTime LawnMowerLastConnected     "LawnMover Last Connected [%1$ty/%1$tm/%1$td %1$tH:%1$tM]" <clock> (group_LawnMower)

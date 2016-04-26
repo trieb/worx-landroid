@@ -1,0 +1,6 @@
+sitemap laxryggen label="House"
+{
+	Frame {
+		Group item=group_Outdoor label="Outdoor"      icon="garden" 
+	}
+}
