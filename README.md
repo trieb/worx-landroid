@@ -8,8 +8,21 @@ It also publish the data using Dweet.io to easily view it on e.g. freeboard.io.
 1. Copy config_default.ini to config.ini 
 2. Add your configuration to config.ini
 3. Install required libraries
+  * pip install paho-mqtt [paho-mqtt](http://www.eclipse.org/paho/clients/python/)
+  * pip install dweepy [dweet.io](https://dweet.io/)
+
+# Commands
+
+There are currently three different commands, `start`, `stop` and `check`.
+A command is sent by sending a mqtt message to `<BaseTopic>/command/<command>`
+
+* `check` - Collect status rapport
+* `start` - Start mowing
+* `stop` - Stop, and go home
+
 
 #openHAB
+
 ![Alarms from LandroidWorx in openHAB](openHAB_LandroidWorx.png)
 
 # Alarms

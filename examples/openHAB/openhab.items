@@ -16,3 +16,8 @@ Number Mower_Error                  "Other Error [%d]"               <info> (gro
 Number Mower_Battery                "Battery [%d]"                   <battery> (group_LawnMower)    {mqtt="<[mosquitto:laxryggen/landroid/battery:state:default]"}
 Number Mower_WorkedHours            "Worked Hours [%.1f]"            <clock> (group_LawnMower)      {mqtt="<[mosquitto:laxryggen/landroid/worked_hours:state:JS(divide10.js)]"}
 DateTime LawnMowerLastConnected     "LawnMover Last Connected [%1$ty/%1$tm/%1$td %1$tH:%1$tM]" <clock> (group_LawnMower)
+
+Switch Mower_Start	"Mower start"   <contact> (group_LawnMowerCommands) {mqtt=">[mosquitto:laxryggen/landroid/command:command:ON:start]", autoupdate="false"}
+Switch Mower_Stop	"Mower stop"    <contact> (group_LawnMowerCommands) {mqtt=">[mosquitto:laxryggen/landroid/command:command:ON:stop]", autoupdate="false"}
+Switch Mower_GoHome	"Mower go home" <contact> (group_LawnMowerCommands) {mqtt=">[mosquitto:laxryggen/landroid/command:command:ON:gohome]", autoupdate="false"}
+Switch Mower_Check  "Mower check"   <contact> (group_LawnMowerCommands) {mqtt=">[mosquitto:laxryggen/landroid/command:command:ON:check]", autoupdate="false"}
