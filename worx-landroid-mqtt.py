@@ -10,7 +10,7 @@ import time
 import paho.mqtt.client as mqtt
 import requests
 
-DEBUG = False
+DEBUG = True
 running = True
 
 #os.chdir('/home/pi/repos/worx-landroid/')
@@ -39,10 +39,12 @@ def debug_print(message):
 def handle_command(command):
     if 'start' == command:
         debug_print("Sending start...")
+        send_command(11)
     elif 'stop' == command:
-        debug_print("Sending stop...")
+        debug_print("Not implemented!")
     elif 'gohome' == command:
         debug_print("Sending gohome...")
+        send_command(12)
     elif 'check' == command:
         debug_print("Sending check...")
         send_check()
@@ -55,9 +57,10 @@ def send_command(command):
         url = Config.get("Landroid", "Addr")
         auth = (Config.get("Landroid", "User"), Config.get("Landroid", "Pin"))
         headers = {'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'text/plain'}
-        data = 'data=[["settaggi", command, 1]]'
-        response = requests.post(url, auth=auth, headers=headers, timout=5)
+        data = 'data=[["settaggi", {}, 1]]'.format(str(command))
+        response = requests.post(url, auth=auth, headers=headers, data=data)
         data = response.json()
+        return data
     except requests.exceptions.Timeout:
         print("Connection timeout")
     except requests.exceptions.RequestException:
