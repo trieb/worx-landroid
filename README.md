@@ -13,12 +13,12 @@ It also publish the data using Dweet.io to easily view it on e.g. freeboard.io.
 
 # Commands
 
-There are currently three different commands, `start`, `stop` and `check`.
-A command is sent by sending a mqtt message to `<BaseTopic>/command/<command>`
+There are currently three different commands, `start`, `gohome` and `check`.
+A command is sent by sending a mqtt message to `<BaseTopic>/command <command>`
 
 * `check` - Collect status rapport
 * `start` - Start mowing
-* `stop` - Stop, and go home
+* `gohome` - Stop, and go home
 
 
 #openHAB
