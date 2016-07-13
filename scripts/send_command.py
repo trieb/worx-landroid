@@ -6,7 +6,7 @@ def send_command(command):
         url = 'http://192.168.1.90/jsondata.cgi'
         auth = ('admin', '0000')
         headers = {'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'text/plain'}
-        data = 'data=[["settaggi", {}, 1]]'.format(str(command))
+        data = 'data=[["settaggi",{},1]]'.format(str(command))
         response = requests.post(url, auth=auth, headers=headers, data=data)
         data = response.json()
         return data

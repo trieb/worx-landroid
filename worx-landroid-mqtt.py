@@ -57,7 +57,7 @@ def send_command(command):
         url = Config.get("Landroid", "Addr")
         auth = (Config.get("Landroid", "User"), Config.get("Landroid", "Pin"))
         headers = {'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'text/plain'}
-        data = 'data=[["settaggi", {}, 1]]'.format(str(command))
+        data = 'data=[["settaggi",{},1]]'.format(str(command))
         response = requests.post(url, auth=auth, headers=headers, data=data)
         data = response.json()
         return data
