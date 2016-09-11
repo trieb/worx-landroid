@@ -9,7 +9,13 @@ It also publish the data using Dweet.io to easily view it on e.g. freeboard.io.
 2. Add your configuration to config.ini
 3. Install required libraries
   * pip install paho-mqtt [paho-mqtt](http://www.eclipse.org/paho/clients/python/)
-  * pip install dweepy [dweet.io](https://dweet.io/)
+  * pip install requests
+
+# Start
+
+```
+$ python run.py
+```
 
 # Commands
 
@@ -20,6 +26,12 @@ A command is sent by sending a mqtt message to `<BaseTopic>/command <command>`
 * `start` - Start mowing
 * `gohome` - Stop, and go home
 
+
+# Testing the script with mosquitto_pub.exe
+
+```
+$ ./mosquitto_pub.exe -h 192.168.1.5 -t my_topic/command -m start
+```
 
 #openHAB
 
