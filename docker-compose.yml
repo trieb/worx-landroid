@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+
+  worx-service:
+    build: .
+    command: python3 run.py
