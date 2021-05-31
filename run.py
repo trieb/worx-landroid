@@ -11,12 +11,12 @@ import paho.mqtt.client as mqtt
 import requests
 from threading import Timer
 
-DEBUG = False
+DEBUG = True
 
 Config = ConfigParser.ConfigParser()
 Config.read('config.ini')
 
-def on_connect(client, userdata, rc):
+def on_connect(client, userdata, flags, rc):
     debug_print("Connected with result code" + str(rc))
     client.subscribe(Config.get("Mqtt", "BaseTopic") + '/command/#')
 
